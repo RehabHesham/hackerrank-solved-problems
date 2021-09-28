@@ -1,0 +1,30 @@
+/*
+https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+     * Complete the 'repeatedString' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. LONG_INTEGER n
+     */
+
+    public static long repeatedString(string s, long n)
+    {
+        long numOfA = 0;
+        foreach(char c in s){
+            if(c == 'a'){
+                numOfA += 1;
+            }
+        }
+        long numOfRepeatition = n/s.Length;
+        numOfA *= numOfRepeatition;
+        long remainPlaces = n%s.Length;
+        long iteration = 0;
+        foreach(char c in s){
+            if(c == 'a' && iteration<remainPlaces){
+                numOfA += 1;
+            }
+            iteration++;
+        }
+        return numOfA;
+    }
